@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  /* Set Helvetica as the default font */
+  --font-sans: var(--font-helvetica), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* FORCE LOAD UTILITIES 
+   We manually create these classes to guarantee they work.
+*/
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+@layer utilities {
+  .font-oswald {
+    font-family: var(--font-oswald), impact, sans-serif;
+  }
+  
+  .font-playfair {
+    font-family: var(--font-playfair), serif;
+  }
+  
+  /* Vertical text utility */
+  .writing-vertical-rl {
+    writing-mode: vertical-rl;
+  }
+}
