@@ -18,18 +18,14 @@ export default function About() {
           />
         </div>
       </div>
-      {/* ---------------------------------------------------- */}
-      {/* 2. TOP NAVIGATION (Home / Contact)                   */}
-      {/* ---------------------------------------------------- */}
+       {/* Top navbar */}
       <div className=" text-white absolute top-5 right-6 z-20 flex gap-6 text-sm md:text-base md:top-2 md:right-19 md:font-medium md:tracking-[-0.9px] md:text-xl">
         <a href="/" className="hover:underline underline-offset-5">Home</a>
         <a href="/contact" className="hover:underline underline-offset-5">
           Contact me
         </a>
       </div>
-      {/* ---------------------------------------------------- */}
-      {/* 3. VERTICAL EMAIL (Right Side)                       */}
-      {/* ---------------------------------------------------- */}
+        {/* Email Section */}
       <div className="text-white absolute right-3 top-0 bottom-0 z-20 hidden md:flex flex-col items-center ">
         {/* Top Line */}
         <div className="w-[1px] bg-white flex-[2] opacity-60" />
@@ -43,11 +39,7 @@ export default function About() {
         <div className="w-[1px] bg-white flex-1 opacity-60" />
       </div>
 
-      {/* ---------------------------------------------------- */}
-      {/* 4. MAIN CONTENT AREA (Restricted to Left Side)       */}
-      {/* ---------------------------------------------------- */}
-      {/* <div className="relative z-10 w-full md:w-[55%] pl-6 pr-6 md:pl-16 md:pr-0 pt-10 md:pt-16 pb-32"> */}
-      {/* HEADER SECTION */}
+      {/* Header */}
       <div className="absolute top-6 left-4 z-20">
         <h1
           className="font-oswald font-bold text-white leading-[0.8] 
@@ -56,7 +48,7 @@ export default function About() {
         >
           About Me
         </h1>
-        {/* The thin line under the name (optional styling match) */}
+        {/* The thin line under the name */}
         <div className="w-72 h-[2px] bg-white mr-100 ml-0 mt-3" />
       </div>
       <div className="absolute top-[90px] left-4 md:left-155 z-20 w-[90%] md:w-[55%] flex justify-end pr-4 md:pr-12 md:tracking-[-1.9px]">
@@ -69,8 +61,6 @@ export default function About() {
       <div className="absolute top-[190px] left-4 md:left-6 z-20 w-[90%] md:w-[70%] pb-32 pr-4 md:pr-12">
         {/* Paragraphs */}
         <div className="font-helvetica text-justify text-white text-sm md:text-[1.05rem] leading-[1.8] space-y-6 md:tracking-[-0.9px]">
-          
-          {/* 2. Replaced static spans with GlowingSpan */}
           My name is <GlowingSpan>Raj Tejaswee</GlowingSpan>,
           and I am from <GlowingSpan>India</GlowingSpan>. I’m
           24 years old and have recently completed my undergraduate education in{" "}
@@ -87,7 +77,6 @@ export default function About() {
           </GlowingSpan>
           .
           <br />I specialize in the modern{" "}
-          {/* Note: I also replaced the one that was already yellow for consistency in animation */}
           <GlowingSpan>JavaScript</GlowingSpan> and{" "}
           <GlowingSpan>TypeScript</GlowingSpan> ecosystem,
           crafting high-performance user experiences with{" "}
@@ -118,13 +107,9 @@ export default function About() {
             and digital art to blend technology with <GlowingSpan>creativity</GlowingSpan>.
           </p>
         </div>
-        {/* SIGNATURE & QUALIFICATION SECTION */}
-        {/* Aligned to the right edge of this container */}
+        {/* Signature Section */}
         <div className="mt-10 mr-5 flex flex-col items-center md:items-end">
-            
-            {/* Signature Image Slot */}
             <div className="relative w-48 h-20 mb- mr-70">
-                 {/* Make sure this image exists in public/images/ */}
                  <Image 
                     src="/bg-images/signature.png" 
                     alt="Raj Tejaswee Signature" 
@@ -142,12 +127,7 @@ export default function About() {
             </div>
         </div>
       </div>
-
-      
-
-      {/* ---------------------------------------------------- */}
-      {/* 5. FLOATING NAVBAR                                   */}
-      {/* ---------------------------------------------------- */}
+        {/* Navbar Section */}
       <Navbar hoverColorClass="group-hover:text-cyan-400" />
     </main>
   );

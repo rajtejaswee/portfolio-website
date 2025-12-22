@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    // MAIN CONTAINER: 100% Height, No Scroll, Off-White Background
+    // MAIN CONTAINER
     <main className="relative w-full h-screen bg-[#F0F0F0] overflow-hidden text-black font-helvetica selection:bg-black selection:text-white">
 
       {/* Top Left: BIG NAME */}
@@ -15,7 +15,7 @@ export default function Home() {
         >
           rajtejaswee
         </h1>
-        {/* The thin line under the name (optional styling match) */}
+        {/* The thin line under the name */}
         <div className="w-94 h-[2px] bg-black ml-58 mt-3" />
       </div>
 
@@ -30,7 +30,6 @@ export default function Home() {
 
       
       {/* Right Side: VERTICAL EMAIL */}
-      {/* We rotate it 90 degrees */}
       <div className="absolute right-3 top-0 bottom-0 z-20 hidden md:flex flex-col items-center ">
         {/* Top Line */}
         <div className="w-[1px] bg-black flex-[2] opacity-60" />
@@ -43,10 +42,6 @@ export default function Home() {
         {/* Bottom Line */}
         <div className="w-[1px] bg-black flex-1 opacity-60" />
       </div>
-
-      {/* ---------------------------------------------------- */}
-      {/* 2. THE HERO CONTENT (Center)                         */}
-      {/* ---------------------------------------------------- */}
 
       <div className="w-full h-full flex flex-col items-center justify-center relative">
         
@@ -64,13 +59,13 @@ export default function Home() {
         </div>
 
 
-        {/* HERO TEXT (Overlaid on top) */}
-        {/* Changed 'max-w-2xl' to 'max-w-4xl' to fit the larger animated text without breaking lines */}
+        {/* HERO TEXT */}
+
         <div className="relative z-10 text-right max-w-4xl px-4 mt-2 md:tracking-[-0.7px]">
           <span className="font-helvetica md:text-xl  font-light text-black">
             Hi, I am Raj, a <span className="text-2xl font-bold">Web</span>{" "}
             
-            {/* The Animated Part: Larger and Bold */}
+            {/* The Animated Part*/}
             <span className="font-playfair text-xl md:text-5xl font-bold text-black align-right md:tracking-[-0.9px]">
                <FlipWords />
             </span>
@@ -83,14 +78,11 @@ export default function Home() {
 
       </div>
 
-      {/* ---------------------------------------------------- */}
-      {/* 3. NAVBAR PLACEHOLDER (Bottom)                       */}
-      {/* ---------------------------------------------------- */}
-      {/* We will build the floating dock here in the next step */}
+    {/* Navbar Section */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30">
          {/* <Navbar /> goes here later */}
       </div>
-      <Navbar hoverColorClass="group-hover:text-yellow-400" />
+      <Navbar hoverColorClass="group-hover:text-pink-400" />
 
     </main>
   );
