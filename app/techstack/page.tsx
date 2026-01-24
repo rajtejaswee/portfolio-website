@@ -7,8 +7,9 @@ import { motion, Variants } from "framer-motion";
 // --- 1. ICON IMPORTS ---
 import { 
   JavaIcon, PythonIcon, 
-  HtmlIcon, CssIcon, TailwindIcon, JavaScriptIcon, ReactIcon,
-  NodeIcon, ExpressIcon, PostgresIcon, MongoIcon, TypescriptIcon, GitIcon, NextjsIcon, CppIcon, FigmaIcon, MySqlIcon, AfterEffectsIcon, PhotoshopIcon
+  HtmlIcon, CssIcon, TailwindIcon, JavaScriptIcon, ReactIcon, DockerIcon, KubernetesIcon, AWSIcon, TurborepoIcon, WebsocketIcon,
+  NodeIcon, ExpressIcon, PostgresIcon, MongoIcon, TypescriptIcon, 
+  GitIcon, NextjsIcon, CppIcon, FigmaIcon, AfterEffectsIcon, PhotoshopIcon
 } from "@/components/icons/Icons";
 
 // --- 2. REUSABLE ANIMATED CAPSULE COMPONENT ---
@@ -153,6 +154,7 @@ export default function TechStack() {
                 <TechCapsule name="NextJs" Icon={NextjsIcon} />
                 <TechCapsule name="ReactJs" Icon={ReactIcon} />
                 <TechCapsule name="Tailwind CSS" Icon={TailwindIcon} /> 
+                <TechCapsule name="Turborepo" Icon={TurborepoIcon} />
                 <TechCapsule name="JavaScript" Icon={JavaScriptIcon} />
                 <TechCapsule name="CSS" Icon={CssIcon} />
                 <TechCapsule name="HTML" Icon={HtmlIcon} />
@@ -171,9 +173,9 @@ export default function TechStack() {
               <div className="flex flex-wrap gap-4 md:gap-6">
                 <TechCapsule name="Node" Icon={NodeIcon} />
                 <TechCapsule name="ExpressJs" Icon={ExpressIcon} />
-                <TechCapsule name="MySql" Icon={MongoIcon} />
                 <TechCapsule name="PostgreSQL" Icon={PostgresIcon} />
-                <TechCapsule name="MySql" Icon={MySqlIcon} />
+                <TechCapsule name="WebSockets" Icon={WebsocketIcon} />
+                <TechCapsule name="MongoDB" Icon={MongoIcon} />
               </div>
             </div>
 
@@ -184,8 +186,11 @@ export default function TechStack() {
               </h3>
               {/* Removed 'invert' class from here because it's now handled inside TechCapsule */}
               <div className="flex flex-wrap gap-4 md:gap-6">
-                <TechCapsule name="Figma" Icon={FigmaIcon} />
                 <TechCapsule name="Git" Icon={GitIcon} />
+                <TechCapsule name="Docker" Icon={DockerIcon} />
+                <TechCapsule name="AWS" Icon={AWSIcon} />
+                <TechCapsule name="Kubernetes" Icon={KubernetesIcon} />
+                 <TechCapsule name="Figma" Icon={FigmaIcon} />
                 <TechCapsule name="Adobe After Effects" Icon={AfterEffectsIcon} />
                 <TechCapsule name="Adobe Photoshop" Icon={PhotoshopIcon} />
               </div>

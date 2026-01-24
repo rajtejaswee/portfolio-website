@@ -95,7 +95,7 @@ export default function Projects() {
         >
           Projects
         </h1>
-        <div className="w-30 h-[2px] bg-white md:ml-5 mt-3" />
+        <div className="w-37 h-[2px] bg-white md:ml-5 mt-3" />
       </div>
 
       {/* 5. SQUARE GRID (3 Columns) */}

@@ -27,7 +27,7 @@ export const Navbar = ({ hoverColorClass = "group-hover:text-yellow-400" }: Navb
       }}
     >
       <nav 
-        className="flex items-center gap-5 bg-black px-6 py-2 rounded-full border border-white/10 shadow-[8px_8px_5px_rgba(60,60,60,0.5)]"
+        className="flex items-center gap-5 bg-black px-6 py-2 rounded-full border border-white/10 shadow-[6px_6px_5px_rgba(60,60,60,0.5)]"
       >
         {navItems.map((item) => {
           // Check if the current item is Resume

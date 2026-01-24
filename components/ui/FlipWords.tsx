@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const words = [" DEVELOPER", " DESIGNER"];
+const words = [" BACKEND", " FRONTEND", " DEVELOPER"];
 
 export const FlipWords = () => {
   const [index, setIndex] = useState(0);
