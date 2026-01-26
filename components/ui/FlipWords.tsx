@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const words = [" BACKEND", " FRONTEND", " DEVELOPER"];
+const words = [" BACKEND", "FRONTEND", " DEVELOPER"];
 
 export const FlipWords = () => {
   const [index, setIndex] = useState(0);
@@ -44,7 +44,7 @@ export const FlipWords = () => {
                 duration: 0.4,
                 ease: [0.2, 0.65, 0.3, 0.9], // Custom cubic-bezier for "snappy" feel
               }}
-              className="inline-block whitespace-pre" // preserves spaces
+              className="inline-block" // preserves spaces
             >
               {letter}
             </motion.span>

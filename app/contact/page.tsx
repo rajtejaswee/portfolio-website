@@ -4,15 +4,68 @@ import { Navbar } from "@/components/ui/Navbar";
 import Image from "next/image";
 import { 
   LinkedinIcon, GithubIcon, XIcon, DiscordIcon, FigIcon, LeetcodeIcon, InstagramIcon, 
-  CodeforcesIcon,
-  GmailIcon,
-  BehanceIcon
+  CodeforcesIcon, GmailIcon, BehanceIcon
 } from "@/components/icons/Icons";
 import { motion } from "framer-motion";
+import { useState } from "react"; // Imported useState
 
 export default function ContactMe() {
+  
+  // 1. Define State for Form Handling
+  const [result, setResult] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Define social links with visibility logic
+  const socialLinks = [
+    { Icon: LinkedinIcon, href: "https://www.linkedin.com/in/raj-tejaswee-147603247/", visible: "block" },
+    { Icon: GithubIcon, href: "https://github.com/rajtejaswee", visible: "block" },
+    { Icon: XIcon, href: "https://x.com/raj_tejaswee", visible: "block" },
+    { Icon: DiscordIcon, href: "https://discord.com/users/802192725150531624", visible: "block" },
+    { Icon: BehanceIcon, href: "https://www.behance.net/rajtejaswee", visible: "hidden md:block" }, // Hidden on mobile    
+    { Icon: LeetcodeIcon, href: "https://leetcode.com/u/now_raj/", visible: "block" },
+    { Icon: CodeforcesIcon, href: "https://codeforces.com/profile/rajtejaswee", visible: "block" },
+    { Icon: InstagramIcon, href: "https://www.instagram.com/rajtejaswee/", visible: "block" },
+    { Icon: GmailIcon, href: "mailto:rajtejaswee02@gmail.com", visible: "hidden md:block" }    // Hidden on mobile
+  ];
+
+  // 2. The Submit Logic
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setResult("");
+
+    const formData = new FormData(e.currentTarget);
+    // YOUR ACCESS KEY ADDED HERE
+    formData.append("access_key", "53e96730-1660-43f5-9d06-27ff1a5a910b"); 
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Message Sent Successfully!");
+        (e.target as HTMLFormElement).reset(); // Clear the form
+      } else {
+        console.error("Error", data);
+        setResult(data.message);
+      }
+    } catch (error) {
+      console.error("Error", error);
+      setResult("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+      // Optional: Clear success message after 5 seconds
+      setTimeout(() => setResult(""), 5000);
+    }
+  };
+
   return (
-    <main className="relative w-full h-screen bg-black overflow-hidden">
+    <main className="relative w-full h-[100dvh] bg-black overflow-hidden selection:bg-orange-500 selection:text-white">
+      
       {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0 z-0 flex items-center justify-center">
         <div className="relative w-full h-full md:w-[100%] md:h-[100%]">
@@ -27,14 +80,14 @@ export default function ContactMe() {
       </div>
 
       {/* Top Navbar */}
-      <div className="text-white absolute top-5 right-6 z-30 flex gap-6 text-sm md:text-base md:top-2 md:right-19 md:font-medium md:tracking-[-0.9px] md:text-xl">
-        <a href="/" className="hover:underline underline-offset-4">
+      <div className="text-white absolute top-10 right-6 z-30 flex flex-col items-end md:flex-row md:items-center gap-1 md:gap-6 text-xs md:text-base md:top-2 md:right-19 md:font-medium tracking-tight md:tracking-[-0.9px] md:text-xl">
+        <a href="/" className="hover:underline underline-offset-4 font-semibold md:font-normal opacity-90">
           Home
         </a>
       </div>
-      {/* Email Section */}
+
+      {/* Email Section (Hidden on Mobile) */}
       <div className="text-white absolute right-3 top-0 bottom-0 z-20 hidden md:flex flex-col items-center ">
-        {/* Top Line */}
         <div className="w-[1px] bg-white flex-[2] opacity-60" />
         <a
           href="mailto:rajtejaswee02@gmail.com"
@@ -42,68 +95,86 @@ export default function ContactMe() {
         >
           rajtejaswee02@gmail.com
         </a>
-        {/* Bottom Line */}
         <div className="w-[1px] bg-white flex-1 opacity-60" />
       </div>
+
       {/* Header Section */}
       <div className="absolute top-6 left-4 z-30 pointer-events-none">
         <h1
           className="font-oswald font-bold text-white leading-[0.8] 
           text-[15vw] md:text-[128px] 
-          tracking-[-1px] md:tracking-[-6.6px] md:mt-6 md:ml-4"
+          tracking-[-3px] md:tracking-[-6.6px] md:mt-6 md:ml-4"
         >
           Contact Me
         </h1>
-        {/* The thin line under the name */}
-        <div className="w-120 h-[2px] bg-white ml-51 mt-3" />
+        <div className="hidden md:block w-120 h-[2px] bg-white ml-51 mt-3" />
       </div>
+
      {/* Main Content Container */}
-      <div className="absolute top-[200px] left-4 left-20 z-20 w-[90%] md:w-[60%]">
+      <div className="absolute top-[140px] md:top-[200px] left-4 md:left-20 z-20 w-[90%] md:w-[60%]">
         
         {/* Let's Connect Text */}
-        <div className="mb-6">
-          <h2 className="font-playfair text-5xl text-white mb-2 tracking-[-2.5px]">Let’s Connect</h2>
-          <p className="font-helvetica italic text-white text-xl font-light tracking-[-0.9px]">
+        <div className="mb-6 md:mb-6">
+          <h2 className="font-playfair text-3xl md:text-5xl text-white mb-2 tracking-[-1px] md:tracking-[-2.5px]">Let’s Connect</h2>
+          <p className="font-helvetica italic text-white text-sm md:text-xl font-light tracking-wide md:tracking-[-0.9px] leading-relaxed">
             If you want to know more about me or my work, or if you would just like to say hello,<br className="hidden md:block"/>
             send me a message. I’d love to hear from you.
           </p>
         </div>
 
         {/* Contact Form */}
-        <form className="flex flex-col gap-4 w-full ">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3 md:grid md:grid-cols-[1fr_auto] md:gap-4 w-full">
           
-          {/* Row: Email Input + Send Button */}
-          <div className="flex w-full gap-4">
-            <input 
-              type="email" 
-              placeholder="Email" 
-              // Changed w-[60%] to flex-1 so it shares space with the button
-              className="flex w-[650px] bg-white/20 backdrop-blur-md border border-white/60 rounded-[20px] px-6 py-3 text-white placeholder-gray-400 focus:outline-none focus:bg-white/30 transition-all"
-            />
-            
-            <button
-              type="submit"
-              // Matches Input styles exactly + Orange Hover
-              className="px-8 w-[190px] bg-white/20 backdrop-blur-md border border-white/60 rounded-[20px] text-white font-medium transition-all duration-300 hover:bg-orange-500 hover:border-orange-500 hover:scale-105"
-            >
-              Send
-            </button>
-          </div>
+          {/* 1. EMAIL INPUT */}
+          <input 
+            type="email" 
+            name="email" // Added name
+            required    // Added required
+            placeholder="Email" 
+            className="w-full md:w-[650px] bg-white/20 backdrop-blur-md border border-white/60 rounded-[15px] md:rounded-[20px] px-6 py-3 text-white placeholder-gray-400 focus:outline-none focus:bg-white/30 transition-all text-sm md:text-base md:col-start-1 md:row-start-1"
+          />
           
-          {/* Message Input */}
+          {/* 2. MESSAGE TEXTAREA */}
           <textarea 
+            name="message" // Added name
+            required       // Added required
             placeholder="Message" 
             rows={4}
-            className="w-full bg-white/20 backdrop-blur-md border border-white/60 rounded-[20px] px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:bg-white/30 transition-all resize-none"
+            className="w-full bg-white/20 backdrop-blur-md border border-white/60 rounded-[15px] md:rounded-[20px] px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:bg-white/30 transition-all resize-none text-sm md:text-base md:col-span-2 md:row-start-2"
           />
+
+          {/* 3. SEND BUTTON */}
+          <button
+            type="submit"
+            disabled={isSubmitting} // Disable while sending
+            className="
+              bg-white/20 backdrop-blur-md border border-white/60 rounded-[15px] md:rounded-[20px] 
+              text-white font-medium transition-all duration-300 hover:bg-orange-500 hover:border-orange-500 hover:scale-105 active:scale-95 text-sm md:text-base
+              
+              /* Mobile Specifics */
+              w-fit mx-auto px-10 py-2 mt-2
+              
+              /* Desktop Specifics */
+              md:w-[190px] md:mx-0 md:px-0 md:py-0 md:mt-0 md:col-start-2 md:row-start-1
+              disabled:opacity-50 disabled:cursor-not-allowed
+            "
+          >
+             {isSubmitting ? "Sending..." : "Send"}
+          </button>
         </form>
+
+        {/* Success Message Display */}
+        {result && (
+          <p className="mt-4 text-center md:text-left text-white font-medium tracking-wide">
+            {result}
+          </p>
+        )}
+
       </div>
 
       {/* Social Media Dock */}
-      {/* Centered at bottom */}
       <motion.div 
-        className="absolute  bottom-5 left-1/2 -translate-x-1/2 z-30"
-        // The Floating Animation
+        className="absolute bottom-70 md:bottom-40 left-1/2 -translate-x-1/2 z-30 w-[95%] md:w-auto"
         animate={{ y: [0, -6, 0] }}
         transition={{
           duration: 4,
@@ -111,36 +182,21 @@ export default function ContactMe() {
           ease: "easeInOut",
         }}
       >
-      <div className="absolute bottom-40 left-1/2 -translate-x-1/2 z-30">
-        <div className="flex items-center gap-6 bg-white/20 backdrop-blur-lg border border-white/10 px-8 py-3 rounded-[20px] transition-all duration-300 hover:bg-orange-500 ">
-          {/* Using map for cleaner code, adjust links as needed */}
-          {[
-            { Icon: LinkedinIcon, href: "#" },
-            { Icon: GithubIcon, href: "#" },
-            { Icon: XIcon, href: "#" },
-            { Icon: DiscordIcon, href: "#" },
-            {Icon: BehanceIcon, href: "#" },
-            { Icon: FigIcon, href: "#" },
-            { Icon: LeetcodeIcon, href: "#" },
-            { Icon: CodeforcesIcon, href: "#" },
-            { Icon: InstagramIcon, href: "#" },
-            { Icon: GmailIcon, href: "#" }
-
-          ].map((item, index) => (
+        <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-4 md:gap-6 bg-white/20 backdrop-blur-lg border border-white/10 px-6 py-4 md:px-8 md:py-3 rounded-[20px] transition-all duration-300 hover:bg-orange-500 group">
+          {socialLinks.map((item, index) => (
             <a 
               key={index} 
               href={item.href} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-white hover:scale-150 transition-all duration-200"
+              className={`text-white hover:scale-125 md:hover:scale-150 transition-all duration-200 ${item.visible}`}
             >
-              {/* Render the icon component */}
-              <item.Icon className="w-8 md:h-8" />
+              <item.Icon className="w-6 h-6 md:w-8 md:h-8 fill-current" />
             </a>
           ))}
         </div>
-      </div>
       </motion.div>
+
       {/* Navbar Section */}
       <Navbar hoverColorClass="group-hover:text-orange-300" />
       </main>

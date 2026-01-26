@@ -9,40 +9,49 @@ import { X } from "lucide-react";
 // --- 1. PROJECT DATA ---
 const projectsData = [
   {
-    id: 1,
-    title: "Tube - Tweet",
-    subtitle: "Combined Backend System",
-    description: "A robust back-end system combining YouTube and Twitter features. I implemented 5+ controllers and validators for secure login, channel subscriptions, and seamless video interactions.",
-    tech: ["Node.js", "MongoDB", "Express.js", "JWT"],
-    image: "https://i.pinimg.com/1200x/66/8a/78/668a789fbcf7a8ac35fec0454a8fe83f.jpg", 
-    link: "https://github.com/your-username/tube-tweet",
+    id: 1, // or next available ID
+    title: "Reddit MCP",
+    subtitle: "Privacy-First Search Engine",
+    description: "A high-performance search engine built with the Model Context Protocol. I engineered a tiered caching system (Redis + In-Memory) for <50ms latency, implemented IP-based rate limiting to prevent abuse, and deployed a fully Dockerized architecture on Railway and Vercel.",
+    tech: ["Next.js", "TypeScript", "Redis", "Docker", "Node.js"],
+    image: "https://images.unsplash.com/photo-1616509091215-57bbece93654?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+    link: "https://reddit-mcp-nine.vercel.app/",
   },
   {
-    id: 2,
-    title: "Designify",
-    subtitle: "AI Website Generator",
-    description: "Developed an innovative platform that generates responsive website layouts from simple text prompts using OpenAI's API. It interprets natural language to create functional HTML/CSS structures.",
-    tech: ["OpenAI API", "React.js", "TailwindCSS"],
-    image: "https://i.pinimg.com/1200x/62/55/46/62554617c86e5339ab798f189b6364b8.jpg",
-    link: "https://designify.ai",
-  },
+    id: 2, // Update this ID as needed for your list
+    title: "shortx",
+    subtitle: "Scalable URL Shortener API",
+    description: "Engineered a production-ready backend microservice for URL management. Features include atomic click analytics (race-condition proof), JWT authentication, and a fully Dockerized deployment pipeline on Render & NeonDB.",
+    tech: ["TypeScript", "Node.js", "Docker", "PostgreSQL", "Drizzle ORM"],
+    image: "https://i.pinimg.com/1200x/36/9f/6e/369f6e0c427d60e477cc3ac6e0b2ae58.jpg", 
+    link: "https://documenter.getpostman.com/view/35966589/2sBXVig9wv", 
+},
   {
-    id: 3,
-    title: "Z - Chat Web App",
-    subtitle: "Real-Time Messaging",
-    description: "Built a high-performance real-time messaging platform using Socket.io. Features include room-based chat, instant message delivery, online status indicators, and persistent chat history storage.",
-    tech: ["Socket.io", "React.js", "Node.js", "CSS"],
-    image: "https://i.pinimg.com/1200x/34/81/c6/3481c633a849b08bafdc1f4f9241823b.jpg",
-    link: "https://z-chat-app.com",
-  },
+  id: 3,
+  title: "Echoid",
+  subtitle: "Second Brain Application",
+  description: "Developed a digital second brain to store, organize, and intelligently retrieve links, videos, and tweets. Features include automated metadata scraping for seamless content ingestion, smart categorization, and a responsive glassmorphism UI with dark mode support.",
+  tech: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Prisma", "PostgreSQL", "Docker"],
+  image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  link: "https://github.com/rajtejaswee/Echoid",
+},
   {
     id: 4,
-    title: "E - Commerce",
-    subtitle: "Full Stack Platform",
-    description: "A comprehensive e-commerce solution featuring dynamic product listings, secure cart management, and Stripe payment gateway integration. Optimized for SEO and fast load times.",
-    tech: ["React.js", "Redux", "Stripe", "MongoDB"],
-    image: "https://i.pinimg.com/1200x/5f/37/aa/5f37aabbeb4d01d9faf9c7311588dde2.jpg",
-    link: "https://ecommerce-demo.com",
+    title: "Chat Room",
+    subtitle: "A Chat room service",
+    description: "A full-stack real-time chat application featuring a dynamic 'Room Code' system for private messaging. Optimized for high performance and minimal overhead, the service enables seamless joining and room creation while maintaining a consistent message history across all connected clients.",
+    tech: ["React.js", "TypeScript", "Websockets", "Node.js"],
+    image: "https://i.pinimg.com/736x/c7/64/f5/c764f5f464c79be65261c1d7ce6b79b7.jpg",
+    link: "https://github.com/rajtejaswee/chat-app",
+  },
+  {
+    id: 5,
+    title: "Designify",
+    subtitle: "Full Stack AI Platform",
+    description: "An AI-powered full-stack engine that architected and deployed entire web applications from single-line text prompts. Integrated LLMs to automate the generation of responsive UI components and backend API structures, significantly reducing time-to-market for MVP development.",
+    tech: ["React.js", "Vite", "JavaScript", "HTTP"],
+    image: "https://i.pinimg.com/1200x/72/83/00/72830043ca7a7b1d2c2e5c9a945685e5.jpg",
+    link: "https://github.com/rajtejaswee/Designify/tree/main",
   },
 ];
 
@@ -51,7 +60,7 @@ export default function Projects() {
   const activeProject = projectsData.find((p) => p.id === selectedId);
 
   return (
-    <main className="relative w-full h-screen bg-black overflow-hidden">
+    <main className="relative w-full h-[100dvh] bg-black overflow-hidden selection:bg-green-300 selection:text-black">
       
       {/* 1. BACKGROUND IMAGE */}
       <div className="absolute inset-0 z-0 flex items-center justify-center">
@@ -67,14 +76,14 @@ export default function Projects() {
       </div>
 
       {/* 2. TOP NAVIGATION */}
-      <div className="text-white absolute top-5 right-6 z-30 flex gap-6 text-sm md:text-base md:top-2 md:right-19 md:font-medium md:tracking-[-0.9px] md:text-xl">
-        <a href="/" className="hover:underline underline-offset-4">Home</a>
-        <a href="/contact" className="hover:underline underline-offset-4">Contact me</a>
+      {/* FIX: Stacked vertically (flex-col items-end) and moved down (top-10) for mobile */}
+      <div className="text-white absolute top-10 right-6 z-30 flex flex-col items-end md:flex-row md:items-center gap-1 md:gap-6 text-xs md:text-base md:top-2 md:right-19 md:font-medium tracking-tight md:tracking-[-0.9px] md:text-xl">
+        <a href="/" className="hover:underline underline-offset-4 font-semibold md:font-normal opacity-80 md:opacity-100">Home</a>
+        <a href="/contact" className="hover:underline underline-offset-4 font-semibold md:font-normal">Contact me</a>
       </div>
 
-      {/* Email Section */}
+      {/* Email Section (Hidden on Mobile) */}
       <div className="text-white absolute right-3 top-0 bottom-0 z-20 hidden md:flex flex-col items-center ">
-        {/* Top Line */}
         <div className="w-[1px] bg-white flex-[2] opacity-60" />
         <a
           href="mailto:rajtejaswee02@gmail.com"
@@ -82,34 +91,33 @@ export default function Projects() {
         >
           rajtejaswee02@gmail.com
         </a>
-        {/* Bottom Line */}
         <div className="w-[1px] bg-white flex-1 opacity-60" />
       </div>
 
       {/* 4. HEADER SECTION */}
       <div className="absolute top-6 left-4 z-30 pointer-events-none">
         <h1
+          // FIX: Tighter tracking [-3px] for mobile to match the squished aesthetic
           className="font-oswald font-bold text-white leading-[0.8] 
           text-[15vw] md:text-[128px] 
-          tracking-[-1px] md:tracking-[-6.6px] md:mt-6 md:ml-4"
+          tracking-[-3px] md:tracking-[-6.6px] md:mt-6 md:ml-4"
         >
           Projects
         </h1>
-        <div className="w-37 h-[2px] bg-white md:ml-5 mt-3" />
+        {/* FIX: Hidden on mobile (md:block) */}
+        <div className="hidden md:block w-37 h-[2px] bg-white md:ml-5 mt-3" />
       </div>
 
       {/* 5. SQUARE GRID (3 Columns) */}
-      {/* Width increased to 70% to accommodate 3 columns */}
-      <div className="absolute top-[200px] left-1/2 -translate-x-1/2 w-[90%] z-20 h-[calc(100vh-250px)] overflow-y-auto pb-40 no-scrollbar">
+      <div className="absolute top-[140px] md:top-[200px] left-1/2 -translate-x-1/2 w-[90%] z-20 h-[calc(100vh-160px)] md:h-[calc(100vh-250px)] overflow-y-auto pb-40 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         
-        {/* CHANGED: grid-cols-2 -> md:grid-cols-3 */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
           {projectsData.map((project) => (
             <motion.div
               key={project.id}
               layoutId={`card-${project.id}`}
               onClick={() => setSelectedId(project.id)}
-              className="group relative w-full aspect-square rounded-[20px] overflow-hidden border border-white/20 cursor-pointer bg-black/40 backdrop-blur-sm shadow-lg hover:border-white/50 transition-colors"
+              className="group relative w-full aspect-square rounded-[15px] md:rounded-[20px] overflow-hidden border border-white/20 cursor-pointer bg-black/40 backdrop-blur-sm shadow-lg hover:border-white/50 transition-colors"
             >
               {/* Background Image */}
               <Image
@@ -119,14 +127,17 @@ export default function Projects() {
                 className="object-cover transition-all duration-300 group-hover:blur-md"
               />
 
-              {/* Normal State: Title at bottom */}
+              {/* Title Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/90 to-transparent transition-opacity duration-300 group-hover:opacity-0">
-                <h3 className="font-playfair text-5xl text-white [text-shadow:_0_0_15px_rgba(255,255,255,0.6)] font-bold tracking-[-0.9px]">{project.title}</h3>
+                {/* FIX: Text size scaled down dramatically for mobile (text-lg/xl) vs desktop (text-5xl) */}
+                <h3 className="font-playfair text-xl md:text-4xl lg:text-5xl text-white [text-shadow:_0_0_15px_rgba(255,255,255,0.6)] font-bold tracking-tight md:tracking-[-0.9px] leading-none">
+                  {project.title}
+                </h3>
               </div>
 
               {/* Hover State: "Tap to View" Message */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
-                <span className="font-helvetica text-white text-medium font-light tracking-wide border border-white/60 px-3 py-1 rounded-full backdrop-blur-md">
+                <span className="font-helvetica text-white text-xs md:text-base font-light tracking-wide border border-white/60 px-3 py-1 rounded-full backdrop-blur-md">
                   Tap to view
                 </span>
               </div>
@@ -149,42 +160,43 @@ export default function Projects() {
             />
 
             {/* The Active Card */}
+            {/* FIX: Adjusted Mobile Positioning (top-24 bottom-24) to ensure content is visible and doesn't get covered by navbar/header */}
             <motion.div
               layoutId={`card-${selectedId}`}
-              className="absolute z-50 left-4 right-4 md:left-[20%] md:right-[20%] top-[160px] bottom-[160px] bg-white/10 backdrop-blur-xl border border-white/30 rounded-[30px] overflow-hidden shadow-2xl flex flex-col md:flex-row"
+              className="absolute z-50 left-4 right-4 md:left-[20%] md:right-[20%] top-24 bottom-24 md:top-[160px] md:bottom-[160px] bg-black/80 md:bg-white/10 backdrop-blur-xl border border-white/30 rounded-[20px] md:rounded-[30px] overflow-hidden shadow-2xl flex flex-col md:flex-row"
             >
               {/* Close Button */}
               <button 
                 onClick={(e) => { e.stopPropagation(); setSelectedId(null); }}
-                className="absolute top-4 right-4 z-50 p-2 bg-black/20 hover:bg-black/40 rounded-full text-white transition-colors"
+                className="absolute top-4 right-4 z-50 p-2 bg-black/40 hover:bg-black/60 rounded-full text-white transition-colors"
               >
                 <X size={20} color="white" />
               </button>
 
               {/* Left: Image Section */}
-              <div className="relative w-full md:w-[45%] h-[180px] md:h-full">
+              <div className="relative w-full h-[200px] md:h-full md:w-[45%] shrink-0">
                 <Image
                   src={activeProject.image}
                   alt={activeProject.title}
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:bg-gradient-to-r" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent md:bg-gradient-to-r" />
               </div>
 
               {/* Right: Content Section */}
-              <div className="flex-1 p-6 md:p-8 flex flex-col overflow-y-auto no-scrollbar">
+              <div className="flex-1 p-5 md:p-8 flex flex-col overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 
                 <div className="mb-4">
-                  <motion.h2 className="font-playfair text-3xl md:text-4xl text-white mb-1">
+                  <motion.h2 className="font-playfair text-2xl md:text-4xl text-white mb-1">
                     {activeProject.title}
                   </motion.h2>
-                  <p className="font-helvetica text-green-300 text-lg tracking-wide">
+                  <p className="font-helvetica text-green-300 text-sm md:text-lg tracking-wide">
                     {activeProject.subtitle}
                   </p>
                 </div>
 
-                <motion.p className="font-helvetica text-gray-200 text-sm md:text-base leading-relaxed text-justify mb-6 font-light">
+                <motion.p className="font-helvetica text-gray-300 text-sm md:text-base leading-relaxed text-justify mb-6 font-light">
                   {activeProject.description}
                 </motion.p>
 
@@ -194,21 +206,21 @@ export default function Projects() {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {activeProject.tech.map((t) => (
-                      <span key={t} className="px-3 py-1 bg-white/20 border border-white/10 rounded-full text-xs text-white">
+                      <span key={t} className="px-3 py-1 bg-white/10 border border-white/10 rounded-full text-[10px] md:text-xs text-white">
                         {t}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="mt-auto">
+                <div className="mt-auto pb-4 md:pb-0">
                   <a
                     href={activeProject.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-6 py-2 bg-white text-black font-bold rounded-full text-sm hover:bg-green-300 transition-colors shadow-lg"
+                    className="inline-block w-full md:w-auto text-center px-6 py-3 md:py-2 bg-white text-black font-bold rounded-full text-sm hover:bg-green-300 transition-colors shadow-lg"
                   >
-                    Visit Website
+                    Visit Link
                   </a>
                 </div>
 
