@@ -56,7 +56,7 @@ export default function About() {
 
       {/* Sub-Header (Web Developer...) */}
       {/* FIX: Moved down to top-[115px] to leave space from Contact. Increased size to text-sm. */}
-      <div className="absolute top-[115px] md:top-[90px] right-4 md:left-155 z-20 w-auto md:w-[55%] flex justify-end md:pr-12 md:tracking-[-1.9px]">
+      <div className="absolute top-[90px] md:top-[90px] right-4 md:left-155 z-20 w-auto md:w-[55%] flex justify-end md:pr-12 md:tracking-[-1.9px]">
         <div className="text-right font-playfair text-white text-sm md:text-3xl leading-tight opacity-90">
           <p>Web Developer</p>
           <p>Web Designer & Problem Solver</p>
@@ -65,7 +65,7 @@ export default function About() {
 
       {/* PARAGRAPH SECTION */}
       {/* FIX: Adjusted top spacing to top-[160px] to accommodate larger subtitles */}
-      <div className="absolute top-[160px] md:top-[190px] left-4 md:left-6 z-20 w-[90%] md:w-[70%] pb-32 pr-2 md:pr-12">
+      <div className="absolute top-[150px] md:top-[190px] left-4 md:left-6 z-20 w-[90%] md:w-[70%] pb-32 pr-2 md:pr-12">
         {/* Paragraphs */}
         <div className="font-helvetica text-justify text-white text-[11px] md:text-[1.05rem] leading-[1.6] md:leading-[1.8] space-y-3 md:space-y-6 md:tracking-[-0.9px] 
         [&_span]:!text-white [&_span]:!shadow-none [&_span]:!animate-none [&_span]:!font-normal
@@ -78,10 +78,12 @@ export default function About() {
           <GlowingSpan>Computer Science and Engineering</GlowingSpan>{" "}
           from <GlowingSpan>IIIT Vadodara, India</GlowingSpan>.
           
-          <br className="md:block hidden" />{" "}
-          For me, software development started as a curiosity, but it has
-          evolved into a drive to{" "}
-          <GlowingSpan>engineer scalable, production-ready systems</GlowingSpan>.
+          <span className="hidden md:inline">
+            <br className="md:block hidden" />{" "}
+            For me, software development started as a curiosity, but it has
+            evolved into a drive to{" "}
+            <GlowingSpan>engineer scalable, production-ready systems</GlowingSpan>.
+          </span>
           
           <br className="md:block hidden" />{" "}
           I specialize in the modern <GlowingSpan>JavaScript</GlowingSpan> and{" "}
@@ -106,10 +108,14 @@ export default function About() {
             ideas. I pay close <GlowingSpan>attention to detail</GlowingSpan> and tend toward{" "}
             <br className="md:block hidden"/>{" "}
             perfectionism, which helps me produce work that feels thoughtful and
-            complete. I take <GlowingSpan>responsibility</GlowingSpan> seriously, enjoy{" "}
-            <br className="md:block hidden" />{" "}
-            tackling challenges, and stay deeply involved in projects that genuinely
-            interest me. Outside of work, I spend time at
+            complete.{" "}
+            <span className="hidden md:inline">
+              I take <GlowingSpan>responsibility</GlowingSpan> seriously, enjoy{" "}
+              <br className="md:block hidden" />{" "}
+              tackling challenges, and stay deeply involved in projects that genuinely
+              interest me.{" "}
+            </span>
+            Outside of work, I spend time at
             <br className="md:block hidden" />{" "}
             the <GlowingSpan>gym</GlowingSpan>, <GlowingSpan>reading books</GlowingSpan>, and
             exploring <GlowingSpan>cinema</GlowingSpan>, with a strong interest in creative
@@ -122,7 +128,7 @@ export default function About() {
 
         {/* Signature Section */}
         {/* FIX: Changed items-end to items-center (Mobile) to center align the block */}
-        <div className="mt-4 md:mt-10 mr-45 md:mr-[-50px] flex flex-col items-center md:items-end">
+        <div className="mt-2 md:mt-10 mr-45 md:mr-[-50px] flex flex-col items-center md:items-end">
             <div className="relative w-32 h-16 md:w-48 md:h-20 mr-0 md:mr-70">
                  <Image 
                     src="/bg-images/signature.png" 

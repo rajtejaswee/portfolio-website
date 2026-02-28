@@ -66,7 +66,7 @@ export default function Home() {
             <span>
                 <span className="text-xl md:text-3xl md:text-bold"> Web</span>
                 {/* The Animated Part */}
-                <span className="md:ml-[10px] ml-[120px] font-playfair text-3xl md:text-5xl font-bold text-black md:align-right md:tracking-[-0.9px]">
+                <span className="md:ml-[10px] ml-[85px] font-playfair text-3xl md:text-5xl font-bold text-black md:align-right md:tracking-[-0.9px]">
                    <FlipWords />
                 </span>
             </span>

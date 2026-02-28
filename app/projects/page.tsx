@@ -9,7 +9,7 @@ import { X } from "lucide-react";
 // --- 1. PROJECT DATA ---
 const projectsData = [
   {
-    id: 1, // or next available ID
+    id: 1, 
     title: "Reddit MCP",
     subtitle: "Privacy-First Search Engine",
     description: "A high-performance search engine built with the Model Context Protocol. I engineered a tiered caching system (Redis + In-Memory) for <50ms latency, implemented IP-based rate limiting to prevent abuse, and deployed a fully Dockerized architecture on Railway and Vercel.",
@@ -18,24 +18,24 @@ const projectsData = [
     link: "https://reddit-mcp-nine.vercel.app/",
   },
   {
-    id: 2, // Update this ID as needed for your list
-    title: "shortx",
+    "id": 2, 
+    "title": "Slate",
+    "subtitle": "Real-Time Collaborative Infinite Canvas",
+    "description": "Architected a decoupled microservices monorepo for real-time spatial collaboration. Engineered a low-latency native WebSocket engine with auto-reconnection resilience, robust CORS/Preflight handling, and secure JWT/OAuth authentication deployed across Vercel and Railway.",
+    "tech": ["TypeScript", "Next.js", "WebSockets", "Express.js", "Prisma", "PostgreSQL", "Turborepo"],
+    "image": "https://i.pinimg.com/1200x/a5/61/24/a56124586a1a78712cf839193c9b83a9.jpg", 
+    "link": "https://slate-web-murex.vercel.app" 
+},
+  {
+    id: 3, 
+    title: "ShortX",
     subtitle: "Scalable URL Shortener API",
     description: "Engineered a production-ready backend microservice for URL management. Features include atomic click analytics (race-condition proof), JWT authentication, and a fully Dockerized deployment pipeline on Render & NeonDB.",
     tech: ["TypeScript", "Node.js", "Docker", "PostgreSQL", "Drizzle ORM"],
-    image: "https://i.pinimg.com/1200x/36/9f/6e/369f6e0c427d60e477cc3ac6e0b2ae58.jpg", 
+    image: "https://i.pinimg.com/1200x/1b/2f/65/1b2f657c2469705f4780d16862f08fae.jpg", 
     link: "https://documenter.getpostman.com/view/35966589/2sBXVig9wv", 
 },
-  {
-  id: 3,
-  title: "Echoid",
-  subtitle: "Second Brain Application",
-  description: "Developed a digital second brain to store, organize, and intelligently retrieve links, videos, and tweets. Features include automated metadata scraping for seamless content ingestion, smart categorization, and a responsive glassmorphism UI with dark mode support.",
-  tech: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Prisma", "PostgreSQL", "Docker"],
-  image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  link: "https://github.com/rajtejaswee/Echoid",
-},
-  {
+{
     id: 4,
     title: "Chat Room",
     subtitle: "A Chat room service",
@@ -53,6 +53,17 @@ const projectsData = [
     image: "https://i.pinimg.com/1200x/72/83/00/72830043ca7a7b1d2c2e5c9a945685e5.jpg",
     link: "https://github.com/rajtejaswee/Designify/tree/main",
   },
+  {
+  id: 6,
+  title: "Echoid",
+  subtitle: "Second Brain Application",
+  description: "Developed a digital second brain to store, organize, and intelligently retrieve links, videos, and tweets. Features include automated metadata scraping for seamless content ingestion, smart categorization, and a responsive glassmorphism UI with dark mode support.",
+  tech: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Prisma", "PostgreSQL", "Docker"],
+  image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  link: "https://github.com/rajtejaswee/Echoid",
+},
+  
+  
 ];
 
 export default function Projects() {

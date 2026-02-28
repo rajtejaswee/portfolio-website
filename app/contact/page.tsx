@@ -7,35 +7,31 @@ import {
   CodeforcesIcon, GmailIcon, BehanceIcon
 } from "@/components/icons/Icons";
 import { motion } from "framer-motion";
-import { useState } from "react"; // Imported useState
+import { useState } from "react";
 
 export default function ContactMe() {
   
-  // 1. Define State for Form Handling
   const [result, setResult] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Define social links with visibility logic
   const socialLinks = [
     { Icon: LinkedinIcon, href: "https://www.linkedin.com/in/raj-tejaswee-147603247/", visible: "block" },
     { Icon: GithubIcon, href: "https://github.com/rajtejaswee", visible: "block" },
     { Icon: XIcon, href: "https://x.com/raj_tejaswee", visible: "block" },
     { Icon: DiscordIcon, href: "https://discord.com/users/802192725150531624", visible: "block" },
-    { Icon: BehanceIcon, href: "https://www.behance.net/rajtejaswee", visible: "hidden md:block" }, // Hidden on mobile    
+    { Icon: BehanceIcon, href: "https://www.behance.net/rajtejaswee", visible: "hidden md:block" }, 
     { Icon: LeetcodeIcon, href: "https://leetcode.com/u/now_raj/", visible: "block" },
     { Icon: CodeforcesIcon, href: "https://codeforces.com/profile/rajtejaswee", visible: "block" },
     { Icon: InstagramIcon, href: "https://www.instagram.com/rajtejaswee/", visible: "block" },
-    { Icon: GmailIcon, href: "mailto:rajtejaswee02@gmail.com", visible: "hidden md:block" }    // Hidden on mobile
+    { Icon: GmailIcon, href: "mailto:rajtejaswee02@gmail.com", visible: "hidden md:block" } 
   ];
 
-  // 2. The Submit Logic
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setResult("");
 
     const formData = new FormData(e.currentTarget);
-    // YOUR ACCESS KEY ADDED HERE
     formData.append("access_key", "53e96730-1660-43f5-9d06-27ff1a5a910b"); 
 
     try {
@@ -48,7 +44,7 @@ export default function ContactMe() {
 
       if (data.success) {
         setResult("Message Sent Successfully!");
-        (e.target as HTMLFormElement).reset(); // Clear the form
+        (e.target as HTMLFormElement).reset(); 
       } else {
         console.error("Error", data);
         setResult(data.message);
@@ -58,7 +54,6 @@ export default function ContactMe() {
       setResult("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
-      // Optional: Clear success message after 5 seconds
       setTimeout(() => setResult(""), 5000);
     }
   };
@@ -110,13 +105,13 @@ export default function ContactMe() {
         <div className="hidden md:block w-120 h-[2px] bg-white ml-51 mt-3" />
       </div>
 
-     {/* Main Content Container */}
-      <div className="absolute top-[140px] md:top-[200px] left-4 md:left-20 z-20 w-[90%] md:w-[60%]">
+     {/* Main Content Container - Adjusted top offset for mobile */}
+      <div className="absolute top-[110px] md:top-[200px] left-4 md:left-20 z-20 w-[90%] md:w-[60%]">
         
         {/* Let's Connect Text */}
-        <div className="mb-6 md:mb-6">
+        <div className="mb-4 md:mb-6">
           <h2 className="font-playfair text-3xl md:text-5xl text-white mb-2 tracking-[-1px] md:tracking-[-2.5px]">Let’s Connect</h2>
-          <p className="font-helvetica italic text-white text-sm md:text-xl font-light tracking-wide md:tracking-[-0.9px] leading-relaxed">
+          <p className="font-helvetica italic text-white text-xs md:text-xl font-light tracking-wide md:tracking-[-0.9px] leading-relaxed">
             If you want to know more about me or my work, or if you would just like to say hello,<br className="hidden md:block"/>
             send me a message. I’d love to hear from you.
           </p>
@@ -125,37 +120,29 @@ export default function ContactMe() {
         {/* Contact Form */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-3 md:grid md:grid-cols-[1fr_auto] md:gap-4 w-full">
           
-          {/* 1. EMAIL INPUT */}
           <input 
             type="email" 
-            name="email" // Added name
-            required    // Added required
+            name="email" 
+            required    
             placeholder="Email" 
-            className="w-full md:w-[650px] bg-white/20 backdrop-blur-md border border-white/60 rounded-[15px] md:rounded-[20px] px-6 py-3 text-white placeholder-gray-400 focus:outline-none focus:bg-white/30 transition-all text-sm md:text-base md:col-start-1 md:row-start-1"
+            className="w-full md:w-[650px] bg-white/20 backdrop-blur-md border border-white/60 rounded-[15px] md:rounded-[20px] px-4 py-2 md:px-6 md:py-3 text-white placeholder-gray-400 focus:outline-none focus:bg-white/30 transition-all text-sm md:text-base md:col-start-1 md:row-start-1"
           />
           
-          {/* 2. MESSAGE TEXTAREA */}
           <textarea 
-            name="message" // Added name
-            required       // Added required
+            name="message" 
+            required       
             placeholder="Message" 
             rows={4}
-            className="w-full bg-white/20 backdrop-blur-md border border-white/60 rounded-[15px] md:rounded-[20px] px-6 py-4 text-white placeholder-gray-400 focus:outline-none focus:bg-white/30 transition-all resize-none text-sm md:text-base md:col-span-2 md:row-start-2"
+            className="w-full bg-white/20 backdrop-blur-md border border-white/60 rounded-[15px] md:rounded-[20px] px-4 py-3 md:px-6 md:py-4 text-white placeholder-gray-400 focus:outline-none focus:bg-white/30 transition-all resize-none text-sm md:text-base md:col-span-2 md:row-start-2"
           />
 
-          {/* 3. SEND BUTTON */}
           <button
             type="submit"
-            disabled={isSubmitting} // Disable while sending
+            disabled={isSubmitting} 
             className="
               bg-white/20 backdrop-blur-md border border-white/60 rounded-[15px] md:rounded-[20px] 
               text-white font-medium transition-all duration-300 hover:bg-orange-500 hover:border-orange-500 hover:scale-105 active:scale-95 text-sm md:text-base
-              
-              /* Mobile Specifics */
-              w-fit mx-auto px-10 py-2 mt-2
-              
-              /* Desktop Specifics */
-              md:w-[190px] md:mx-0 md:px-0 md:py-0 md:mt-0 md:col-start-2 md:row-start-1
+              w-fit mx-auto px-10 py-2 mt-1 md:w-[190px] md:mx-0 md:px-0 md:py-0 md:mt-0 md:col-start-2 md:row-start-1
               disabled:opacity-50 disabled:cursor-not-allowed
             "
           >
@@ -165,16 +152,16 @@ export default function ContactMe() {
 
         {/* Success Message Display */}
         {result && (
-          <p className="mt-4 text-center md:text-left text-white font-medium tracking-wide">
+          <p className="mt-2 md:mt-4 text-center md:text-left text-white text-sm md:text-base font-medium tracking-wide">
             {result}
           </p>
         )}
 
       </div>
 
-      {/* Social Media Dock */}
+      {/* Social Media Dock - Adjusted bottom offset and gap for mobile */}
       <motion.div 
-        className="absolute bottom-70 md:bottom-40 left-1/2 -translate-x-1/2 z-30 w-[95%] md:w-auto"
+        className="absolute bottom-28 md:bottom-40 left-1/2 -translate-x-1/2 z-30 w-[90%] md:w-auto"
         animate={{ y: [0, -6, 0] }}
         transition={{
           duration: 4,
@@ -182,7 +169,7 @@ export default function ContactMe() {
           ease: "easeInOut",
         }}
       >
-        <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-4 md:gap-6 bg-white/20 backdrop-blur-lg border border-white/10 px-6 py-4 md:px-8 md:py-3 rounded-[20px] transition-all duration-300 hover:bg-orange-500 group">
+        <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-3 md:gap-6 bg-white/20 backdrop-blur-lg border border-white/10 px-4 py-3 md:px-8 md:py-3 rounded-[20px] transition-all duration-300 hover:bg-orange-500 group">
           {socialLinks.map((item, index) => (
             <a 
               key={index} 
@@ -191,7 +178,7 @@ export default function ContactMe() {
               rel="noopener noreferrer"
               className={`text-white hover:scale-125 md:hover:scale-150 transition-all duration-200 ${item.visible}`}
             >
-              <item.Icon className="w-6 h-6 md:w-8 md:h-8 fill-current" />
+              <item.Icon className="w-5 h-5 md:w-8 md:h-8 fill-current" />
             </a>
           ))}
         </div>
@@ -199,6 +186,6 @@ export default function ContactMe() {
 
       {/* Navbar Section */}
       <Navbar hoverColorClass="group-hover:text-orange-300" />
-      </main>
-  )
+    </main>
+  );
 }
